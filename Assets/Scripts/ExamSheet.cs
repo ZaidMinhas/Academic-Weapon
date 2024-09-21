@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExamSheet : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class ExamSheet : MonoBehaviour
     public void Write(int k)
     {
         GameObject arrow = Instantiate(arrowPrefab, canvas.transform);
+        arrow.GetComponent<Image>().color = Color.blue;
         int orientation = k;
         
         arrow.transform.localEulerAngles = new Vector3(0, 0, orientation * 90);

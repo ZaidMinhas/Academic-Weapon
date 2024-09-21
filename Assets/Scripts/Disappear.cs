@@ -10,6 +10,7 @@ public class Disappear : MonoBehaviour
     private float timeLastUsed;
 
     [SerializeField] private UIManager uiManager;
+    [SerializeField] CheatSheet cheetSheet;
     [SerializeField] private float cooldownTime = 4.0f;
         private float x = 0.0f;
         private float rate = 0.045f;
@@ -24,6 +25,22 @@ public class Disappear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            if (!cheetSheet.present) { cheetSheet.Disappear(); }
+
+            else if (IsCooldownDone())
+            {
+                Cooldown();
+                cheetSheet.Disappear();
+                uiManager.AbilityCooldown();
+            }
+            else
+            {
+                Debug.Log("Cooldown is not done yet!");
+            }
+        }
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Ray rayOrigin = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit hitInfo;

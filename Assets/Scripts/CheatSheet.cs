@@ -31,7 +31,7 @@ public class CheatSheet : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         
         
-        int inputs = Random.Range(12, 18);
+        int inputs = Random.Range(6 , 15);
         answers = new int[inputs];
         index = 0;
         for (int i = 0; i < inputs; i++)
@@ -74,8 +74,11 @@ public class CheatSheet : MonoBehaviour
         return (index == answers.Length);
         
     }
+
+    public bool present = true;
     public void Disappear()
     {
+        present = !present;
         GetComponent<MeshRenderer>().enabled = !GetComponent<MeshRenderer>().enabled;
         canvas.enabled = !canvas.enabled;
     }

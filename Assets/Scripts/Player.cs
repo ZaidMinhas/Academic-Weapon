@@ -21,10 +21,7 @@ public class Player : MonoBehaviour
 
         if (cameraManager.isWriting())
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                cheatSheet.Disappear();
-            }
+            
             CheckInput();
         }
         
