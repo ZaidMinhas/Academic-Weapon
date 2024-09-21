@@ -13,10 +13,11 @@ public class Disappearable : MonoBehaviour
         outline = GetComponent<Outline>();
     }
 
-    public void Disappear()
+    public virtual void Disappear()
     {
         GetComponent<MeshRenderer>().enabled = false;
     }
+
 
     public void ShowOutline()
     {
