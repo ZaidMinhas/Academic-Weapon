@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkPointsParent: {fileID: 0}
-  cheeSheet: {fileID: 0}
+  cheetSheet: {fileID: 0}
 --- !u!82 &228081543054514125
 AudioSource:
   m_ObjectHideFlags: 0
