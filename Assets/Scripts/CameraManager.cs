@@ -30,17 +30,20 @@ public class CameraManager : MonoBehaviour
           
         }
         
+        // Mouse downwards
         else if (mouse.y < range)
         {
             LookDesk();
         }
+        
+        // Mouse upwards
         else if (mouse.y > (Screen.height - range))
         {
             LookUp();
         }
     }
     
-    public void LookUp()
+    private void LookUp()
     {
         rightCamera.enabled = false;
         upCamera.enabled = true;
@@ -48,7 +51,7 @@ public class CameraManager : MonoBehaviour
         leftCamera.enabled = false;
     }
 
-    public void LookRight()
+    private void LookRight()
     {
         rightCamera.enabled = true;
         upCamera.enabled = false;
@@ -56,7 +59,7 @@ public class CameraManager : MonoBehaviour
         leftCamera.enabled = false;
     }
 
-    public void LookLeft()
+    private void LookLeft()
     {
         rightCamera.enabled = false;
         upCamera.enabled = false;
@@ -65,7 +68,7 @@ public class CameraManager : MonoBehaviour
         
     }
 
-    public void LookDesk()
+    private void LookDesk()
     {
         rightCamera.enabled = false;
         upCamera.enabled = false;
