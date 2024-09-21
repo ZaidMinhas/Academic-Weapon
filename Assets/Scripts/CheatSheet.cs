@@ -82,14 +82,12 @@ public class CheatSheet : MonoBehaviour
     public bool present = true;
     public void Disappear()
     {
-        present = !present;
-
-        
-        GetComponent<MeshRenderer>().enabled = !GetComponent<MeshRenderer>().enabled;
-        canvas.enabled = !canvas.enabled;
+        present = false;
+        GetComponent<MeshRenderer>().enabled = false;
+        canvas.enabled = false;
 
 
-        if (!present && firstClick)
+        if (firstClick)
         {
             StartCoroutine(GenerateAnswer());
             firstClick = false;
@@ -100,6 +98,22 @@ public class CheatSheet : MonoBehaviour
         {
             audioSource.Play();
         }
+    }
+
+    public void Reappear()
+    {
+        present = true;
+        GetComponent<MeshRenderer>().enabled = true;
+        canvas.enabled = false;
+
+
+        
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
     }
 
 

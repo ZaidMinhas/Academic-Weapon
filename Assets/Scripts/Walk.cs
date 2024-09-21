@@ -8,7 +8,8 @@ public class Walk : MonoBehaviour
     private List<Transform> walkPoints = new List<Transform>();
     private HashSet<Transform> visitedPoints = new HashSet<Transform>();
     private Transform currentPoint;
-    [SerializeField] CheatSheet cheetSheet;
+    [SerializeField] Transform player;
+
     void Start()
     {
         // Get all the walk points from the WalkPoints GameObject's children
@@ -37,7 +38,7 @@ public class Walk : MonoBehaviour
                 // Move towards the selected adjacent point
                 while (Vector3.Distance(transform.position, nextPoint.position) > 0.1f)
                 {
-                    CheckCheating();
+                    
                     LookAtTarget(nextPoint);
                     transform.position = Vector3.MoveTowards(transform.position, nextPoint.position, Time.deltaTime * 2);
                     yield return null;
@@ -102,14 +103,20 @@ public class Walk : MonoBehaviour
         return adjacentPoints;
     }
 
-
-    void CheckCheating()
+    IEnumerator WalkToPlayer()
     {
-        float x = transform.position.x;
-        float z = transform.position.z;
-        if (cheetSheet.present &&  x> -5 && x < 1 && z >3 && z < 6)
+        while (Vector3.Distance(transform.position, player.position) > 0.1f)
         {
-            print("CHEATER");
+            LookAtTarget(player);
+            transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * 5);
+            yield return null;
         }
+        
+    }
+    public void AttackStudent()
+    {
+        print("YOU THERE!");
+        StopCoroutine(WalkThroughGrid());
+        StartCoroutine(WalkToPlayer());
     }
 }

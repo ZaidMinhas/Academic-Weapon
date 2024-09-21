@@ -14666,6 +14666,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1698803730474464964, guid: 0aeab8c7b6993534c89a2f2696ccb53c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1854782038}
+    - target: {fileID: 1698803730474464964, guid: 0aeab8c7b6993534c89a2f2696ccb53c, type: 3}
       propertyPath: cheeSheet
       value: 
       objectReference: {fileID: 55946682}
@@ -14677,6 +14681,10 @@ PrefabInstance:
       propertyPath: walkPointsParent
       value: 
       objectReference: {fileID: 626935662}
+    - target: {fileID: 3401839411023497091, guid: 0aeab8c7b6993534c89a2f2696ccb53c, type: 3}
+      propertyPath: cheetSheet
+      value: 
+      objectReference: {fileID: 55946682}
     - target: {fileID: 4407283967016000694, guid: 0aeab8c7b6993534c89a2f2696ccb53c, type: 3}
       propertyPath: m_Name
       value: Teacher
