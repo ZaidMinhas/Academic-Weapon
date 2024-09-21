@@ -8,7 +8,7 @@ public class CheatSheet : MonoBehaviour
     [SerializeField] GameObject arrowPrefab;
     private Canvas canvas;
     private AudioSource audioSource;
-    
+    bool firstClick = true;
     public int[] answers;
     int index = 0;
     private void Awake()
@@ -19,7 +19,8 @@ public class CheatSheet : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(GenerateAnswer());
+        
+        Disappear();
     }
 
     
@@ -27,6 +28,7 @@ public class CheatSheet : MonoBehaviour
     {
         StartCoroutine(GenerateAnswer());
     }
+
     IEnumerator GenerateAnswer()
     {
         Clear();
@@ -81,8 +83,19 @@ public class CheatSheet : MonoBehaviour
     public void Disappear()
     {
         present = !present;
+
+        
         GetComponent<MeshRenderer>().enabled = !GetComponent<MeshRenderer>().enabled;
         canvas.enabled = !canvas.enabled;
+
+
+        if (!present && firstClick)
+        {
+            StartCoroutine(GenerateAnswer());
+            firstClick = false;
+            return;
+        }
+
         if (!audioSource.isPlaying)
         {
             audioSource.Play();
