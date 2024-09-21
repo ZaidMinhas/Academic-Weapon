@@ -116,7 +116,7 @@ public class Walk : MonoBehaviour
     public void AttackStudent()
     {
         print("YOU THERE!");
-        StopCoroutine(WalkThroughGrid());
+        StopAllCoroutines();
         StartCoroutine(WalkToPlayer());
     }
 }
