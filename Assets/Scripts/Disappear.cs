@@ -91,11 +91,11 @@ public class Disappear : MonoBehaviour
     {
         if (Time.time > (timeLastUsed + cooldownTime) || timeLastUsed == 0)
         {
-            Debug.Log("good to go!");
+            //Debug.Log("good to go!");
             return true;
         }
 
-        Debug.Log("cooldown is not done");
+        //Debug.Log("cooldown is not done");
         return false;
 
     }
