@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Cheater cheater;
 
+    [SerializeField] private ExamSheet examSheet;
+
     private bool isPaused = false;
     private float timeRemaining; // in seconds
     
@@ -48,6 +50,11 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+
+        if (examSheet.finished)
+        {
+            Win();
+        }
         
     }
 
@@ -55,6 +62,11 @@ public class GameManager : MonoBehaviour
     {
         uiManager.UpdateTime(0,0);
         uiManager.ShowGameOver();
+    }
+
+    void Win()
+    {
+        uiManager.ShowWin();
     }
 
     public void PauseGame()

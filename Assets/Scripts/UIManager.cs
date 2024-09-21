@@ -9,7 +9,9 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private Canvas HUD;
     [SerializeField] private Canvas gameOverScreen;
+    [SerializeField] private Canvas winScreen;
     [SerializeField] private Canvas pauseMenu;
+    
     private TextMeshProUGUI timeText;
     private Scrollbar disappearAbility;
 
@@ -19,6 +21,9 @@ public class UIManager : MonoBehaviour
         
         gameOverScreen = Instantiate(gameOverScreen);
         gameOverScreen.enabled = false;
+
+        winScreen = Instantiate(winScreen);
+        winScreen.enabled = false;
 
         pauseMenu = Instantiate(pauseMenu);
         pauseMenu.enabled = false;
@@ -53,6 +58,11 @@ public class UIManager : MonoBehaviour
     public void ShowGameOver()
     {
         gameOverScreen.enabled = true;
+    }
+
+    public void ShowWin()
+    {
+        winScreen.enabled = true;
     }
 
     public void TogglePauseMenu()
