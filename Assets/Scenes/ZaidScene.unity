@@ -3366,6 +3366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ab19062d7d2f24196e31e9ed7e5567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footstepClips: []
+  walkingInterval: 10
 --- !u!136 &486014868
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14624,7 +14626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3668800523350913484, guid: df6f78792bc175840ad03825fa3814c1, type: 3}
       propertyPath: m_Name
-      value: Kira
+      value: Student
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
