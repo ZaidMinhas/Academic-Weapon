@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private AudioManager audioManager;
     
     [Tooltip("The time limit of the exam in minutes.")]
     [SerializeField] private float timeLimit = 0.5f; // in minutes
@@ -62,11 +63,13 @@ public class GameManager : MonoBehaviour
     {
         uiManager.UpdateTime(0,0);
         uiManager.ShowGameOver();
+        audioManager.StopAudio();
     }
 
     void Win()
     {
         uiManager.ShowWin();
+        audioManager.StopAudio();
     }
 
     public void PauseGame()
@@ -75,5 +78,8 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
         pausePost.enabled = !pausePost.enabled;
+        audioManager.StopAudio();
     }
+
+    
 }
