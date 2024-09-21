@@ -61,11 +61,11 @@ public class Teacher : MonoBehaviour
 
     void CheckCheating()
     {
-        caught = true;
         float x = transform.position.x;
         float z = transform.position.z;
         if (cheetSheet.present && x > -5 && x < 1 && z > 3 && z < 6)
         {
+            caught = true;
             walk.AttackStudent();
         }
     }

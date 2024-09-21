@@ -10,7 +10,7 @@ public class Disappear : MonoBehaviour
     private float timeLastUsed;
 
     [SerializeField] private UIManager uiManager;
-    [SerializeField] CheatSheet cheetSheet;
+    [SerializeField] CheatSheet cheatSheet;
     [SerializeField] private float cooldownTime = 4.0f;
         private float x = 0.0f;
         private float rate = 0.045f;
@@ -28,12 +28,13 @@ public class Disappear : MonoBehaviour
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            if (!cheetSheet.present) { cheetSheet.Disappear(); }
 
-            else if (IsCooldownDone())
+            if (IsCooldownDone())
             {
                 Cooldown();
-                cheetSheet.Disappear();
+                if (cheatSheet.present) { cheatSheet.Disappear(); }
+                else { cheatSheet.Reappear(); }
+                
                 uiManager.AbilityCooldown();
             }
             else

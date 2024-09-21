@@ -31,6 +31,7 @@ public class CheatSheet : MonoBehaviour
 
     IEnumerator GenerateAnswer()
     {
+        
         Clear();
         yield return new WaitForSeconds(0.2f);
         
@@ -79,7 +80,7 @@ public class CheatSheet : MonoBehaviour
         
     }
 
-    public bool present = true;
+    public bool present = false;
     public void Disappear()
     {
         present = false;
@@ -87,12 +88,7 @@ public class CheatSheet : MonoBehaviour
         canvas.enabled = false;
 
 
-        if (firstClick)
-        {
-            StartCoroutine(GenerateAnswer());
-            firstClick = false;
-            return;
-        }
+        
 
         if (!audioSource.isPlaying)
         {
@@ -104,10 +100,16 @@ public class CheatSheet : MonoBehaviour
     {
         present = true;
         GetComponent<MeshRenderer>().enabled = true;
-        canvas.enabled = false;
+        canvas.enabled = true;
 
 
-        
+        if (firstClick)
+        {
+            
+            StartCoroutine(GenerateAnswer());
+            firstClick = false;
+            return;
+        }
 
         if (!audioSource.isPlaying)
         {
