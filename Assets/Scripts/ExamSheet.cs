@@ -1,34 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ExamSheet : MonoBehaviour
 {
     private Canvas canvas;
-    public int questions = 10;
+    private int q_number = 1;
     [SerializeField] GameObject arrowPrefab;
+    [SerializeField] TextMeshProUGUI textbox;
 
     private void Awake()
     {
         canvas = GetComponentInChildren<Canvas>();
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Write(int k)
     {
         GameObject arrow = Instantiate(arrowPrefab, canvas.transform);
-        int orientation = -k * 90;
+        int orientation = k;
+        
+        arrow.transform.localEulerAngles = new Vector3(0, 0, orientation * 90);
+    }
 
-        arrow.transform.localEulerAngles = new Vector3(0, 0, orientation);
+    public void Clear()
+    {
+        foreach (Transform child in canvas.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    public void NextQuestion()
+    {
+        q_number++;
+       textbox.text = "Q" + q_number;
+
+        Clear();
     }
 }

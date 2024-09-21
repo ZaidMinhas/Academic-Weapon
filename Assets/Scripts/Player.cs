@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,18 +10,24 @@ public class Player : MonoBehaviour
 
     [SerializeField] ExamSheet examSheet;
     [SerializeField] CheatSheet cheatSheet;
+    CameraManager cameraManager;
 
-
-    void Start()
+    private void Start()
     {
-
+        cameraManager = GetComponent<CameraManager>();
     }
-
-    // Update is called once per frame
-    
     void Update()
     {
-        CheckInput();
+
+        if (cameraManager.isWriting())
+        {
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                cheatSheet.Disappear();
+            }
+            CheckInput();
+        }
+        
     }
 
 
@@ -28,30 +35,46 @@ public class Player : MonoBehaviour
     {
         if (Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.wKey.wasPressedThisFrame)
         {
-            examSheet.Write(0);
-            Debug.Log("Up or W Key Just Pressed");
-        }
-
-        if (Keyboard.current.rightArrowKey.wasPressedThisFrame || Keyboard.current.dKey.wasPressedThisFrame)
-        {
-            examSheet.Write(1);
-            Debug.Log("Right or D Key Just Pressed");
-        }
-
-        if (Keyboard.current.downArrowKey.wasPressedThisFrame || Keyboard.current.sKey.wasPressedThisFrame)
-        {
-            examSheet.Write(2);
-            Debug.Log("Down or S Key Just Pressed");
+            Write(0);
+            return;
         }
 
         if (Keyboard.current.leftArrowKey.wasPressedThisFrame || Keyboard.current.aKey.wasPressedThisFrame)
         {
-            examSheet.Write(3);
-            Debug.Log("Left or A Key Just Pressed");
+            Write(1);
+            return;
         }
 
-        
+        if (Keyboard.current.downArrowKey.wasPressedThisFrame || Keyboard.current.sKey.wasPressedThisFrame)
+        {
+            Write(2);
+            return;
+        }
+
+        if (Keyboard.current.rightArrowKey.wasPressedThisFrame || Keyboard.current.dKey.wasPressedThisFrame)
+        {
+            Write(3);
+            return;
+        }
+
     }
 
-    
+    void Write(int k)
+    {
+        if (cheatSheet.Check(k))
+        {
+            examSheet.Write(k);
+
+            if (cheatSheet.isComplete())
+            {
+                examSheet.NextQuestion();
+                cheatSheet.NextAnswer();
+            }
+        }
+        else
+        {
+            examSheet.Clear();
+        }        
+    }
+
 }

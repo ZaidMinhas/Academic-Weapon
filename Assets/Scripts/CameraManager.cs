@@ -72,4 +72,10 @@ public class CameraManager : MonoBehaviour
         deskCamera.enabled = true;
         leftCamera.enabled = false;
     }
+
+
+    public bool isWriting()
+    {
+        return deskCamera.enabled;
+    }
 }
