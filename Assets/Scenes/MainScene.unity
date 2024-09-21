@@ -419,6 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 7005294839062638887, guid: d246f74b8947942418a6c9838879173b, type: 3}
   answers: 
+  present: 1
 --- !u!64 &55946683
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9766,6 +9767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1880657570}
+  cheetSheet: {fileID: 55946682}
   cooldownTime: 4
 --- !u!114 &1854782046
 MonoBehaviour:
