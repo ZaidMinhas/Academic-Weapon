@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager uiManager;
     
     [Tooltip("The time limit of the exam in minutes.")]
-    [SerializeField] private int timeLimit = 2; // in minutes
+    [SerializeField] private float timeLimit = 0.5f; // in minutes
 
     private float timeRemaining; // in seconds
     
@@ -29,7 +29,17 @@ public class GameManager : MonoBehaviour
             float seconds = Mathf.FloorToInt(timeRemaining % 60);
             uiManager.UpdateTime(minutes, seconds);
         }
-       
-    
+        // Time has run out -- GAME OVER
+        else
+        {
+            GameOver();
+        }
+        
+    }
+
+    void GameOver()
+    {
+        uiManager.UpdateTime(0,0);
+        uiManager.ShowGameOver();
     }
 }

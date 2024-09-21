@@ -8,12 +8,15 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Canvas HUD;
+    [SerializeField] private Canvas gameOverScreen;
     private TextMeshProUGUI timeText;
     private Scrollbar disappearAbility;
 
     private void Start()
     {
         HUD = Instantiate(HUD);
+        gameOverScreen = Instantiate(gameOverScreen);
+        gameOverScreen.enabled = false;
         
         disappearAbility = HUD.GetComponentInChildren<Scrollbar>();
         timeText = HUD.GetComponentInChildren<TextMeshProUGUI>();
@@ -22,7 +25,6 @@ public class UIManager : MonoBehaviour
 
     public void UpdateAbilityCooldown(float value)
     {
-        Debug.Log(disappearAbility.size);
         disappearAbility.size = value;
     }
 
@@ -41,5 +43,10 @@ public class UIManager : MonoBehaviour
     public void UpdateTime(float minutes, float seconds)
     {
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void ShowGameOver()
+    {
+        gameOverScreen.enabled = true;
     }
 }
