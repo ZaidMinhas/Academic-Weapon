@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("The time limit of the exam in minutes.")]
     [SerializeField] private float timeLimit = 0.5f; // in minutes
 
-    [SerializeField] private Volume pausePost; 
+    [SerializeField] private Volume pausePost;
+
+    [SerializeField] private Cheater cheater;
 
     private bool isPaused = false;
     private float timeRemaining; // in seconds
@@ -38,6 +40,11 @@ public class GameManager : MonoBehaviour
         }
         // Time has run out -- GAME OVER
         else
+        {
+            GameOver();
+        }
+
+        if (cheater.IsSuccessful())
         {
             GameOver();
         }
