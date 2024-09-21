@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45076674, g: 0.5007051, b: 0.5747879, a: 1}
+  m_IndirectSpecularColor: {r: 0.4507662, g: 0.50070477, b: 0.57478696, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12620,8 +12620,16 @@ PrefabInstance:
       value: Cheater
       objectReference: {fileID: 0}
     - target: {fileID: 7681803456241094576, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: moveCooldown
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681803456241094576, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
       propertyPath: xValToStopAt
       value: -4.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681803456241094576, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: percentChance
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14009,3 +14017,5 @@ SceneRoots:
   - {fileID: 1860624535}
   - {fileID: 1452013020}
   - {fileID: 22606789}
+  - {fileID: 486014871}
+  - {fileID: 626935663}
