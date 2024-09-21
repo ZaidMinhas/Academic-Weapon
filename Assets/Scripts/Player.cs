@@ -11,10 +11,12 @@ public class Player : MonoBehaviour
     [SerializeField] ExamSheet examSheet;
     [SerializeField] CheatSheet cheatSheet;
     CameraManager cameraManager;
+    private AudioSource audioSource;
 
     private void Start()
     {
         cameraManager = GetComponent<CameraManager>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -23,6 +25,10 @@ public class Player : MonoBehaviour
         if (cameraManager.isWriting())
         {       
             CheckInput();
+        }
+        else
+        {
+         StopWritingSound();   
         }
         
     }
@@ -67,11 +73,26 @@ public class Player : MonoBehaviour
                 examSheet.NextQuestion();
                 cheatSheet.NextAnswer();
             }
+            PlayWritingSound();
         }
         else
         {
             examSheet.Clear();
+            StopWritingSound();
         }        
+    }
+
+    void PlayWritingSound()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+    }
+
+    void StopWritingSound()
+    {
+        audioSource.Stop();
     }
 
 }

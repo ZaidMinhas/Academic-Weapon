@@ -7,12 +7,14 @@ public class CheatSheet : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject arrowPrefab;
     private Canvas canvas;
+    private AudioSource audioSource;
     
     public int[] answers;
     int index = 0;
     private void Awake()
     {
         canvas = GetComponentInChildren<Canvas>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -81,6 +83,10 @@ public class CheatSheet : MonoBehaviour
         present = !present;
         GetComponent<MeshRenderer>().enabled = !GetComponent<MeshRenderer>().enabled;
         canvas.enabled = !canvas.enabled;
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
     }
 
 
