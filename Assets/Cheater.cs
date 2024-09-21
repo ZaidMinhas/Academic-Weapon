@@ -10,21 +10,37 @@ public class Cheater : MonoBehaviour
     [SerializeField] private float xValToStopAt = -1.7f;
     
     [Tooltip("The time that the cheater waits after the player looks at them")]
-    [SerializeField] private float moveCooldown = 2.0f; // in seconds
+    [SerializeField] private float moveCooldown = 4.0f; // in seconds
+
+    [SerializeField] private AudioClip[] audioClips;
     
     private float timeSincePlayerLook = 0.0f;
 
     private bool success = false;
-    
+
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         
         if (Time.time > (timeSincePlayerLook + moveCooldown) && Time.time != 0)
         {
             float random = Random.value;
-            if (random > 0.99)
+            if (random > 0.999)
             {
                 MoveCloser();
+            }
+        }
+        else
+        {
+            if (audioSource.isPlaying)
+            {
+               audioSource.Stop(); 
             }
         }
     }
@@ -35,6 +51,7 @@ public class Cheater : MonoBehaviour
         if (position.x <= xValToStopAt)
         {
             transform.position = new Vector3(position.x + distanceToMove, position.y, position.z);
+            PlayChairScraping();
         }
         else
         {
@@ -51,5 +68,16 @@ public class Cheater : MonoBehaviour
     public bool IsSuccessful()
     {
         return success;
+    }
+
+    private void PlayChairScraping()
+    {
+        if (!audioSource.isPlaying)
+        {
+            // Play a random sound clip
+            audioSource.clip = audioClips[Random.Range(0, audioClips.Length - 1)];
+            audioSource.Play();
+        }
+       
     }
 }
