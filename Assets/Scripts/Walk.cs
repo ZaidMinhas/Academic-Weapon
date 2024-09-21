@@ -56,7 +56,7 @@ public class Walk : MonoBehaviour
                 // Do not change currentPoint, just reset visitedPoints
             }
 
-            yield return new WaitForSeconds(1f); // Delay before moving to the next point
+            yield return new WaitForSeconds(Time.deltaTime); // Delay before moving to the next point
         }
     }
 
