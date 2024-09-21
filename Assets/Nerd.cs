@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class Nerd : MonoBehaviour
 {
     [SerializeField] CheatSheet cheetSheet;
 
-    [SerializeField] float urmTimer;
+    float urmTimer;
     
     bool stalking = false;
 
@@ -24,29 +25,33 @@ public class Nerd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (!glasses.present)
+        if (stalking)
         {
-            stalking = false ;
-            return;
-        }
-
-        if (!cheetSheet.present && stalking)
-        {
-            stalking = false;
-        }
-
-
-        if (stalking && Time.time > urmTimer)
-        {
-            urmTimer = Time.time + 5;
-            print("Nerd: " + quotes[index++]);
-            
-            if (quotes.Length == index)
+            if (!glasses.present)
             {
-                enabled = false;
+                index = 0;
+                stalking = false;
+                return;
+            }
+
+            if (!cheetSheet.present)
+            {
+                stalking = false;
+            }
+
+
+            if (Time.time > urmTimer)
+            {
+                urmTimer = Time.time + 5;
+                print("Nerd: " + quotes[index++]);
+
+                if (quotes.Length == index)
+                {
+                    enabled = false;
+                }
             }
         }
+        
 
         
 

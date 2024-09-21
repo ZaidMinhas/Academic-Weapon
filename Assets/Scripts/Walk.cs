@@ -11,15 +11,14 @@ public class Walk : MonoBehaviour
     [SerializeField] Transform player;
 
     void Start()
-    {
-        // Get all the walk points from the WalkPoints GameObject's children
+    {        
         foreach (Transform child in walkPointsParent.transform)
         {
             walkPoints.Add(child);
         }
 
-        // Start the random walk
-        currentPoint = walkPoints[0]; // Assuming we start from the first point
+        
+        currentPoint = walkPoints[0];
         StartCoroutine(WalkThroughGrid());
     }
 
@@ -34,11 +33,8 @@ public class Walk : MonoBehaviour
                 // Pick a random adjacent point that hasn't been visited
                 Transform nextPoint = availablePoints[Random.Range(0, availablePoints.Count)];
 
-                
-                // Move towards the selected adjacent point
                 while (Vector3.Distance(transform.position, nextPoint.position) > 0.1f)
-                {
-                    
+                {                    
                     LookAtTarget(nextPoint);
                     transform.position = Vector3.MoveTowards(transform.position, nextPoint.position, Time.deltaTime * 2);
                     yield return null;
@@ -50,13 +46,12 @@ public class Walk : MonoBehaviour
             }
             else
             {
-                // If no adjacent unvisited points are available, reset to current end point
-                // Clear visited points but keep the current point as the starting point for the next walk
+                
                 visitedPoints.Clear();
-                // Do not change currentPoint, just reset visitedPoints
+                
             }
 
-            yield return new WaitForSeconds(Time.deltaTime); // Delay before moving to the next point
+            yield return new WaitForSeconds(Time.deltaTime);
         }
     }
 
@@ -79,10 +74,9 @@ public class Walk : MonoBehaviour
 
         // Find the index of the current point
         int index = walkPoints.IndexOf(point);
-        int row = index / 4; // Get row in the grid (for a 4x4 grid)
-        int col = index % 4; // Get column in the grid (for a 4x4 grid)
+        int row = index / 4;
+        int col = index % 4;
 
-        // Check possible adjacent points (right, left, up, down)
         if (col < 3 && !visitedPoints.Contains(walkPoints[index + 1])) // Right
         {
             adjacentPoints.Add(walkPoints[index + 1]);
