@@ -2045,6 +2045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1880657570}
   timeLimit: 0.5
+  pausePost: {fileID: 2700556058995002389, guid: a2787a6589618433bb909445de30b42e, type: 3}
 --- !u!4 &360137502
 Transform:
   m_ObjectHideFlags: 0
@@ -2211,7 +2212,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -4663,7 +4664,7 @@ GameObject:
   - component: {fileID: 960613500}
   - component: {fileID: 960613499}
   m_Layer: 0
-  m_Name: Global Volume
+  m_Name: PostProcessing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8869,6 +8870,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 71666ec2-3948-4891-922e-d881596f4268
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 360137501}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3dd76178-21e3-41f8-82f1-62e58e0e50cc
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -10686,6 +10703,10 @@ PrefabInstance:
       propertyPath: timeText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7731512282593444166, guid: 9fdc78a005ac548879aa4b1284caf384, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 8968764915615234220, guid: 7da0ebec7c2c24666a5425bb49d4d3fe, type: 3}
     - target: {fileID: 7731512282593444166, guid: 9fdc78a005ac548879aa4b1284caf384, type: 3}
       propertyPath: gameOverScreen
       value: 

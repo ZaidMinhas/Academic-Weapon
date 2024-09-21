@@ -9,14 +9,19 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private Canvas HUD;
     [SerializeField] private Canvas gameOverScreen;
+    [SerializeField] private Canvas pauseMenu;
     private TextMeshProUGUI timeText;
     private Scrollbar disappearAbility;
 
     private void Start()
     {
         HUD = Instantiate(HUD);
+        
         gameOverScreen = Instantiate(gameOverScreen);
         gameOverScreen.enabled = false;
+
+        pauseMenu = Instantiate(pauseMenu);
+        pauseMenu.enabled = false;
         
         disappearAbility = HUD.GetComponentInChildren<Scrollbar>();
         timeText = HUD.GetComponentInChildren<TextMeshProUGUI>();
@@ -48,5 +53,10 @@ public class UIManager : MonoBehaviour
     public void ShowGameOver()
     {
         gameOverScreen.enabled = true;
+    }
+
+    public void TogglePauseMenu()
+    {
+        pauseMenu.enabled = !pauseMenu.enabled;
     }
 }

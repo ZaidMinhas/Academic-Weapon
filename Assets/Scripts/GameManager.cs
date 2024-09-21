@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("The time limit of the exam in minutes.")]
     [SerializeField] private float timeLimit = 0.5f; // in minutes
 
+    [SerializeField] private Volume pausePost; 
+
+    private bool isPaused = false;
     private float timeRemaining; // in seconds
     
     
@@ -16,6 +20,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         timeRemaining = timeLimit * 60;
+        
+        pausePost = Instantiate(pausePost);
+        pausePost.enabled = false;
     }
 
     // Update is called once per frame
@@ -41,5 +48,13 @@ public class GameManager : MonoBehaviour
     {
         uiManager.UpdateTime(0,0);
         uiManager.ShowGameOver();
+    }
+
+    public void PauseGame()
+    {
+        uiManager.TogglePauseMenu();
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0 : 1;
+        pausePost.enabled = !pausePost.enabled;
     }
 }
