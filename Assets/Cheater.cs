@@ -12,6 +12,9 @@ public class Cheater : MonoBehaviour
     [Tooltip("The time that the cheater waits after the player looks at them")]
     [SerializeField] private float moveCooldown = 4.0f; // in seconds
 
+    [Tooltip("The percent chance that the player will move each frame.")]
+    [SerializeField] private float percentChance = 0.1f;
+
     [SerializeField] private AudioClip[] audioClips;
     
     private float timeSincePlayerLook = 0.0f;
@@ -31,7 +34,7 @@ public class Cheater : MonoBehaviour
         if (Time.time > (timeSincePlayerLook + moveCooldown) && Time.time != 0)
         {
             float random = Random.value;
-            if (random > 0.999)
+            if (random > (1.0 - (percentChance / 100)))
             {
                 MoveCloser();
             }
