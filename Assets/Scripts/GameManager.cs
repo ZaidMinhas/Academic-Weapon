@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeLimit = 0.5f; // in minutes
 
     [SerializeField] private Volume pausePost;
+    [SerializeField] private Volume deathPost;
 
     [SerializeField] private Cheater cheater;
 
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour
         
         pausePost = Instantiate(pausePost);
         pausePost.enabled = false;
+
+        deathPost = Instantiate(deathPost);
+        deathPost.enabled = false;
     }
 
     // Update is called once per frame
@@ -61,6 +65,11 @@ public class GameManager : MonoBehaviour
         {
             teacher.AttackStudent();
             cheater.stopChecking = true;
+        }
+
+        if (teacher.IsSuccessful())
+        {
+            deathPost.enabled = true;
         }
 
         if (examSheet.finished)
