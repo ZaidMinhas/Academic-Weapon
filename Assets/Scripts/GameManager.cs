@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
            return;
         }
         cameraManager.MainMenuCamOff();
+        uiManager.ShowHUD();
         
         // Update the timer while there's still time left
         if (timeRemaining > 0)
