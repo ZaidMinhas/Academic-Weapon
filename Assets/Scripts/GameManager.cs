@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private UIManager uiManager;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private CameraManager cameraManager;
     
     [Tooltip("The time limit of the exam in minutes.")]
     [SerializeField] private float timeLimit = 0.5f; // in minutes
@@ -41,6 +42,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!uiManager.IsMainMenu())
+        {
+            cameraManager.MainMenuCamOff();
+        }
+        
         // Update the timer while there's still time left
         if (timeRemaining > 0)
         {
