@@ -1,27 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Nerd : MonoBehaviour
 {
     [SerializeField] CheatSheet cheetSheet;
 
     float urmTimer;
-    
+
     bool stalking = false;
 
-    [SerializeField]  Glasses glasses;
+    [SerializeField] Glasses glasses;
 
     string[] quotes;
+    [SerializeField] Sprite[] warnings_speech;
+    [SerializeField] Sprite[] glasses_speech;
+    [SerializeField] Image imgHolder;
     int index = 0;
+
+
     bool success = false;
     public bool stopChecking = false;
-    
+
     private AudioSource audioSource;
     void Start()
     {
-        quotes = new string[] {"Hey, what is that!" , "I'm gonna tell the teacher", "I studied hard for this", "OH TEACHER!!!"};
+        
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -49,18 +56,21 @@ public class Nerd : MonoBehaviour
             if (Time.time > urmTimer)
             {
                 urmTimer = Time.time + 5;
-                print("Nerd: " + quotes[index++]);
-                audioSource.Play();
 
-                if (quotes.Length == index)
+                StartCoroutine(displayImage(warnings_speech[index++]));
+
+
+                //audioSource.Play();
+
+                if (warnings_speech.Length == index)
                 {
                     success = true;
                 }
             }
         }
-        
 
-        
+
+
 
         if (cheetSheet.present && !stalking)
         {
@@ -70,6 +80,29 @@ public class Nerd : MonoBehaviour
         }
     }
 
+    public void glassesImage(bool lost)
+    {
+        
+        if (lost)
+        {
+            StartCoroutine(displayImage(glasses_speech[0]));
+        }
+        else
+        {
+            StartCoroutine(displayImage(glasses_speech[1]));
+        }
+    }
+
+    IEnumerator displayImage(Sprite img)
+    {
+        imgHolder.color = new Color(1, 1, 0, 1);
+        imgHolder.sprite = img;
+
+
+        yield return new WaitForSeconds(3);
+        
+        imgHolder.color = new Color(1, 1, 0, 0);
+    }
     
     public bool IsSuccessful()
     {
