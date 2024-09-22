@@ -64,9 +64,14 @@ public class Teacher : MonoBehaviour
         float z = transform.position.z;
         if (cheetSheet.present && x > -5 && x < 1 && z > 3 && z < 6)
         {
-            caught = true;
-            walk.AttackStudent();
+            AttackStudent();
         }
+    }
+
+    public void AttackStudent()
+    {
+        caught = true;
+        walk.AttackStudent();
     }
 
     public void Jumpscare()
