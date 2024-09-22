@@ -17,7 +17,7 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (!jumpScareCam.enabled)
+        if (!jumpScareCam.enabled && !mainMenuCam.enabled)
         {
             Vector3 mouse = Input.mousePosition;
             
@@ -54,6 +54,7 @@ public class CameraManager : MonoBehaviour
         upCamera.enabled = true;
         deskCamera.enabled = false;
         leftCamera.enabled = false;
+        mainMenuCam.enabled = false;
     }
 
     private void LookRight()
@@ -62,6 +63,7 @@ public class CameraManager : MonoBehaviour
         upCamera.enabled = false;
         deskCamera.enabled = false;
         leftCamera.enabled = false;
+        mainMenuCam.enabled = false;
     }
 
     private void LookLeft()
@@ -70,6 +72,7 @@ public class CameraManager : MonoBehaviour
         upCamera.enabled = false;
         deskCamera.enabled = false;
         leftCamera.enabled = true;
+        mainMenuCam.enabled = false;
         
     }
 
@@ -79,6 +82,7 @@ public class CameraManager : MonoBehaviour
         upCamera.enabled = false;
         deskCamera.enabled = true;
         leftCamera.enabled = false;
+        mainMenuCam.enabled = false;
     }
 
 
@@ -94,6 +98,12 @@ public class CameraManager : MonoBehaviour
         upCamera.enabled = false;
         deskCamera.enabled = false;
         leftCamera.enabled = false;
+        mainMenuCam.enabled = false;
         
+    }
+
+    public void MainMenuCamOff()
+    {
+        mainMenuCam.enabled = false;
     }
 }
