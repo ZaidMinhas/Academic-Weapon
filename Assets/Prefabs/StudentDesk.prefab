@@ -51,6 +51,7 @@ MonoBehaviour:
   chair: {fileID: 4732871897867066062}
   spawn: {fileID: 2699733956660937124}
   studentOptions:
+  - {fileID: 6153301252414090593, guid: f69f92152bb244878a88d622cb00d3b1, type: 3}
   - {fileID: 8044579299737599581, guid: f06096f74b9d84bfa83bc9c7f2ef68b6, type: 3}
 --- !u!1 &2699733956660937124
 GameObject:

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e16bbdfb93b8143c3ab19eb047623de6
+guid: 17bcfedaa1f6c4071b5c7cf69fc0e657
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Typing
+      name: Sitting
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 494
+      lastFrame: 210
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
