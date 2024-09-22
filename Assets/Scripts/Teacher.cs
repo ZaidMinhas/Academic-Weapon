@@ -11,6 +11,7 @@ public class Teacher : MonoBehaviour
     [SerializeField] Player player;
 
     private float time = 0.0f;
+    private bool success = false;
     Walk walk;
 
     [SerializeField] private float walkingInterval = 10;
@@ -109,11 +110,17 @@ public class Teacher : MonoBehaviour
     public void Jumpscare()
     {
         GetComponent<Animator>().SetTrigger("Jumpscare");
-        
+        success = true;
+
     }
 
     public void Alert(Transform t)
     {
         walk.CheckoutIncident(t);
+    }
+
+    public bool IsSuccessful()
+    {
+        return success;
     }
 }

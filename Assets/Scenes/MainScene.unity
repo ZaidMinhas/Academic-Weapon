@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44815797, g: 0.4941218, b: 0.5537457, a: 1}
+  m_IndirectSpecularColor: {r: 0.44815737, g: 0.49412143, b: 0.5537445, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2556,6 +2556,7 @@ MonoBehaviour:
   audioManager: {fileID: 22606787}
   timeLimit: 2.5
   pausePost: {fileID: 2700556058995002389, guid: a2787a6589618433bb909445de30b42e, type: 3}
+  deathPost: {fileID: 1374893761458272725, guid: 73e6393fb4af9468684624e43d7351f6, type: 3}
   cheater: {fileID: 1066478739}
   examSheet: {fileID: 1813311586}
   teacher: {fileID: 2046447293}
