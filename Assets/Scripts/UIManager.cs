@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Canvas gameOverScreen;
     [SerializeField] private Canvas winScreen;
     [SerializeField] private Canvas pauseMenu;
+    [SerializeField] private Image blackPanel;
     
     private TextMeshProUGUI timeText;
     private Scrollbar disappearAbility;
@@ -68,5 +70,10 @@ public class UIManager : MonoBehaviour
     public void TogglePauseMenu()
     {
         pauseMenu.enabled = !pauseMenu.enabled;
+    }
+
+    public void FadeToBlack()
+    {
+        blackPanel.DOColor(Color.black, 2);
     }
 }

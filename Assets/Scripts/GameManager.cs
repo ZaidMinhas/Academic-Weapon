@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
         if (teacher.IsSuccessful())
         {
             deathPost.enabled = true;
+            uiManager.FadeToBlack();
         }
 
         if (examSheet.finished)
