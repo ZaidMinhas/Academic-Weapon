@@ -31,7 +31,8 @@ public class Disappear : MonoBehaviour
         {
             if (!cheatSheet.present)
             {
-                cheatSheet.Reappear();  
+                cheatSheet.Reappear();
+                return;
             }
             if (IsCooldownDone())
             {
