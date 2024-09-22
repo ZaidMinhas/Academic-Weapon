@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Nerd
+  m_Name: Teacher
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -27,11 +27,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 6075f0b78e72938479f2cfe6ca2bb215, type: 3}
+        m_Texture: {fileID: 2800000, guid: fb6e6931dca1bf140b8c78c866caabd7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 14cddec56bf4f3945b12f6dbb172a71e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7d58b11182365ef4ab16ec690a1d5c0e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -47,15 +47,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: bd93600d3b20d0e4fbdf28ff1a73041c, type: 3}
+        m_Texture: {fileID: 2800000, guid: be61beba3054b7740ba58bfe092e51ff, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6075f0b78e72938479f2cfe6ca2bb215, type: 3}
+        m_Texture: {fileID: 2800000, guid: fb6e6931dca1bf140b8c78c866caabd7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: fab076d704949da46a8ac1486a5bad39, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0e0fda0ec6338134eb283b6c7aff8078, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -120,7 +120,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &5410596139920836959
+--- !u!114 &8896668158577089126
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
