@@ -13,6 +13,7 @@ public class Walk : MonoBehaviour
     [SerializeField] float walkSpeed;
     Animator anim;
 
+
     void Start()
     {
 
@@ -22,12 +23,10 @@ public class Walk : MonoBehaviour
             walkPoints.Add(child);
         }
         currentPoint = walkPoints[0];
-        
-        StartCoroutine(WalkThroughGrid());
     }
 
     
-    IEnumerator WalkThroughGrid()
+    public IEnumerator WalkThroughGrid()
     {
         while (true)
         {

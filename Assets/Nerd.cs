@@ -26,11 +26,12 @@ public class Nerd : MonoBehaviour
     public bool stopChecking = false;
 
     private AudioSource audioSource;
-    void Start()
+
+    private void Awake()
     {
-        
         audioSource = GetComponent<AudioSource>();
     }
+
 
     // Update is called once per frame
     void Update()

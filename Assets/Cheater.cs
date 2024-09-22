@@ -28,9 +28,8 @@ public class Cheater : MonoBehaviour
     [SerializeField] Image imgHolder;
     [SerializeField] Sprite squakeImage;
 
-    private void Start()
+    private void Awake()
     {
-        //originalPos = transform.position;
         audioSource = GetComponent<AudioSource>();
     }
 

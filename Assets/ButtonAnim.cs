@@ -54,11 +54,17 @@ public class ButtonAnim : MonoBehaviour
         
     }
 
+    bool gameStart = false;
+    public bool GameStarted()
+    {
+        return gameStart;
+    }
     private void OnMouseDown()
     {
         // Play button pressed
         if (buttonType == ButtonType.Play)
         {
+            gameStart = true;
             parent.enabled = false;
         }
         

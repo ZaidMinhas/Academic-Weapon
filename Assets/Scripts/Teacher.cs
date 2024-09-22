@@ -20,11 +20,16 @@ public class Teacher : MonoBehaviour
     Walk walk;
 
     [SerializeField] private float walkingInterval = 10;
-    // Start is called before the first frame update
-    void Start()
-    {   
+
+    private void Awake()
+    {
         walk = GetComponent<Walk>();
         audioSource = GetComponent<AudioSource>();
+    }
+
+    void Start()
+    {   
+        StartCoroutine(walk.WalkThroughGrid());
     }
 
     // Update is called once per frame

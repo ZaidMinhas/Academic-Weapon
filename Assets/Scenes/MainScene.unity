@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44845307, g: 0.49463105, b: 0.554881, a: 1}
+  m_IndirectSpecularColor: {r: 0.4484535, g: 0.4946317, b: 0.55488217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3049,10 +3049,12 @@ MonoBehaviour:
   timeLimit: 2.5
   pausePost: {fileID: 2700556058995002389, guid: a2787a6589618433bb909445de30b42e, type: 3}
   deathPost: {fileID: 1374893761458272725, guid: 73e6393fb4af9468684624e43d7351f6, type: 3}
-  cheater: {fileID: 1066478739}
+  cheater: {fileID: 1066478743}
   examSheet: {fileID: 1813311586}
   teacher: {fileID: 2046447293}
   nerd: {fileID: 1210248228}
+  disappear: {fileID: 1854782045}
+  button: {fileID: 1240867655}
 --- !u!4 &360137502
 Transform:
   m_ObjectHideFlags: 0
@@ -10154,13 +10156,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3141181152934114129, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
   m_PrefabInstance: {fileID: 2037474924}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1066478739 stripped
+--- !u!114 &1066478743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7681803456241094576, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
   m_PrefabInstance: {fileID: 2037474924}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46e0f9c5331ce4e5893badf7e7a292e7, type: 3}
   m_Name: 
@@ -11329,6 +11331,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7919611783829897304, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919611783829897304, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
       propertyPath: studentOptions.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -11366,7 +11372,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210248227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c06110b67379b4c4a8a3cdcc71580c6e, type: 3}
   m_Name: 
@@ -16599,7 +16605,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854782037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d902320cbb3ab4a65b7b131faa6c6a27, type: 3}
   m_Name: 
@@ -18592,6 +18598,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7681803456241094576, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681803456241094576, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
       propertyPath: moveCooldown
       value: 5
       objectReference: {fileID: 0}
@@ -18779,7 +18789,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 9067596899580573402}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67ab19062d7d2f24196e31e9ed7e5567, type: 3}
   m_Name: 
@@ -20699,6 +20709,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1854782039}
     - target: {fileID: 4622959907821532524, guid: caf00aced6ed84d37b1bef96a4e22cb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622959907821532524, guid: caf00aced6ed84d37b1bef96a4e22cb7, type: 3}
       propertyPath: cheetSheet
       value: 
       objectReference: {fileID: 55946682}
@@ -20775,12 +20789,12 @@ SceneRoots:
   - {fileID: 382264180}
   - {fileID: 1371434487832507301}
   - {fileID: 1045660733}
-  - {fileID: 360137502}
   - {fileID: 1557249798}
   - {fileID: 1100891324}
   - {fileID: 1860624535}
   - {fileID: 1452013020}
   - {fileID: 1622745175}
   - {fileID: 22606789}
+  - {fileID: 360137502}
   - {fileID: 969109222}
   - {fileID: 1547192149}

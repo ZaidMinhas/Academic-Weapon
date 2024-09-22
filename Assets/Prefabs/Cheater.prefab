@@ -96,6 +96,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c604953ed1cd64f22bffc00d6baafe17, type: 3}
   - {fileID: 8300000, guid: 6fe9fc153405c468393c09f6dc9331e0, type: 3}
   - {fileID: 8300000, guid: 10a986e4d4e4f42dbaf09d0ad1f8ef54, type: 3}
+  imgHolder: {fileID: 0}
+  squakeImage: {fileID: 0}
+  stopChecking: 0
 --- !u!65 &3731784100616817531
 BoxCollider:
   m_ObjectHideFlags: 0

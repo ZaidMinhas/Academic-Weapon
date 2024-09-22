@@ -12,11 +12,14 @@ public class Player : MonoBehaviour
     [SerializeField] CheatSheet cheatSheet;
     CameraManager cameraManager;
     private AudioSource audioSource;
-
-    private void Start()
+    private void Awake()
     {
         cameraManager = GetComponent<CameraManager>();
         audioSource = GetComponent<AudioSource>();
+    }
+    private void Start()
+    {
+        
     }
     void Update()
     {

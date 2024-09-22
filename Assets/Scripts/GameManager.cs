@@ -22,7 +22,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Teacher teacher;
 
     [SerializeField] private Nerd nerd;
+    [SerializeField] private Disappear disappear;
 
+    [SerializeField] ButtonAnim button;
+    bool gameStarted = false;   
     private bool isPaused = false;
     private float timeRemaining; // in seconds
     
@@ -42,6 +45,28 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!gameStarted)
+        {
+            if (button.GameStarted())
+            {
+                gameStarted = true;
+
+                nerd.enabled = true;
+                teacher.enabled = true;
+                cheater.enabled = true;
+                disappear.enabled = true;   
+
+            }
+
+            else
+            {
+                return;
+            }
+        }
+        
+
+
         if (uiManager.IsMainMenu())
         {
            return;
