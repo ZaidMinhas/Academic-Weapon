@@ -103,6 +103,7 @@ public class Walk : MonoBehaviour
 
     IEnumerator WalkToPlayer()
     {
+            
         while (Vector3.Distance(transform.position, player.position) > 2.5f)
         {
             LookAtTarget(player);
@@ -111,6 +112,7 @@ public class Walk : MonoBehaviour
         }
         moving = false;
         Teacher teacher = GetComponent<Teacher>();
+        
         teacher.Jumpscare();    
     }
 

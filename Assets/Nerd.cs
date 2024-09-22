@@ -41,6 +41,7 @@ public class Nerd : MonoBehaviour
 
         if (stalking)
         {
+            
             if (!glasses.present)
             {
                 index = 0;
