@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7889733914231025512
+--- !u!114 &-1944580341500339102
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FemaleStudent
+  m_Name: BookshelfMat
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -40,11 +40,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: abf6d94be5cbf304097275d1ce162b62, type: 3}
+        m_Texture: {fileID: 2800000, guid: 43f1672bc95d6c345b49ac6581f5d2fc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 8f9f2105d821f374f8092894b376fa65, type: 3}
+        m_Texture: {fileID: 2800000, guid: c6e1a0364992df14491ecf51231b62fa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -60,15 +60,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 0d3300baaba8c784aa154f05b05bdbfa, type: 3}
+        m_Texture: {fileID: 2800000, guid: 809e5fe546c4a0a44b7a363958d82ff9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: abf6d94be5cbf304097275d1ce162b62, type: 3}
+        m_Texture: {fileID: 2800000, guid: 43f1672bc95d6c345b49ac6581f5d2fc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: d7d3ca6ada077cf45ad2a277de83942a, type: 3}
+        m_Texture: {fileID: 2800000, guid: b7dfc744ad30d024996330eca6989eb1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
