@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CheatSheet : MonoBehaviour
@@ -9,7 +10,7 @@ public class CheatSheet : MonoBehaviour
     private Canvas canvas;
     private AudioSource audioSource;
     bool firstClick = true;
-    public int[] answers;
+    public int[] orientation;
     int index = 0;
 
     
@@ -21,44 +22,55 @@ public class CheatSheet : MonoBehaviour
 
     void Start()
     {
-        
+        generate();
         Disappear();
     }
 
     
     public void NextAnswer()
     {
+
+        generate();
         StartCoroutine(GenerateAnswer());
     }
 
     int diff = 0; //dificulty
-    IEnumerator GenerateAnswer()
+    int draw_index;
+
+    void generate()
     {
-        
-        Clear();
-        yield return new WaitForSeconds(0.2f);
-        
-        
-        int inputs = Random.Range(4+(diff*3)/4, 6+diff);
-        answers = new int[inputs];
+        draw_index = 0;
         index = 0;
+        Clear();
+
+        int inputs = Random.Range(4 + (diff * 3) / 4, 6 + diff);
+        orientation = new int[inputs];
+
         for (int i = 0; i < inputs; i++)
         {
-            GameObject arrow = Instantiate(arrowPrefab, canvas.transform);
-            int orientation = Random.Range(0, 4);
-            answers[i] = orientation;
+            orientation[i] = Random.Range(0, 4);
+        }
 
-            
-            arrow.transform.localEulerAngles = new Vector3(0, 0, orientation * 90);
+    }
+    IEnumerator GenerateAnswer()
+    {
+        yield return new WaitForSeconds(0.2f);
+        
+        while (draw_index < orientation.Length)
+        {
+            GameObject arrow = Instantiate(arrowPrefab, canvas.transform);
+            arrow.transform.localEulerAngles = new Vector3(0, 0, orientation[draw_index] * 90);
             audioSource.Play();
+            draw_index++;
             yield return new WaitForSeconds(0.3f);
+            
         }
         diff += 1;
     }
 
     void Clear()
     {
-        if (answers == null) { return; }
+        if (orientation == null) { return; }
         foreach (Transform child in canvas.transform)
         {
             Destroy(child.gameObject);
@@ -68,7 +80,7 @@ public class CheatSheet : MonoBehaviour
     
     public bool Check(int k)
     {
-        if (k == answers[index])
+        if (k == orientation[index])
         {
             index++;
             return true;
@@ -82,7 +94,7 @@ public class CheatSheet : MonoBehaviour
 
     public bool isComplete()
     {
-        return (index == answers.Length);
+        return (index == orientation.Length);
         
     }
 
@@ -92,6 +104,7 @@ public class CheatSheet : MonoBehaviour
         present = false;
         GetComponent<MeshRenderer>().enabled = false;
         canvas.enabled = false;
+        StopAllCoroutines();
 
         if (!audioSource.isPlaying)
         {
@@ -105,14 +118,7 @@ public class CheatSheet : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = true;
         canvas.enabled = true;
 
-
-        if (firstClick)
-        {
-            
-            StartCoroutine(GenerateAnswer());
-            firstClick = false;
-            return;
-        }
+        StartCoroutine(GenerateAnswer());
 
         if (!audioSource.isPlaying)
         {
