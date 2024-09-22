@@ -9,7 +9,7 @@ public class Walk : MonoBehaviour
     private HashSet<Transform> visitedPoints = new HashSet<Transform>();
     private Transform currentPoint;
     [SerializeField] Transform player;
-
+    [SerializeField] float walkSpeed;
     void Start()
     {
         foreach (Transform child in walkPointsParent.transform)
@@ -35,7 +35,7 @@ public class Walk : MonoBehaviour
                 while (Vector3.Distance(transform.position, nextPoint.position) > 0.1f)
                 {                    
                     LookAtTarget(nextPoint);
-                    transform.position = Vector3.MoveTowards(transform.position, nextPoint.position, Time.deltaTime * 2);
+                    transform.position = Vector3.MoveTowards(transform.position, nextPoint.position, Time.deltaTime * walkSpeed);
                     yield return null;
                 }
 
@@ -88,7 +88,7 @@ public class Walk : MonoBehaviour
         {
             adjacentPoints.Add(walkPoints[index - 4]);
         }
-        if (row < 3 && !visitedPoints.Contains(walkPoints[index + 4])) // Down
+        if (row < 2 && !visitedPoints.Contains(walkPoints[index + 4])) // Down
         {
             adjacentPoints.Add(walkPoints[index + 4]);
         }
@@ -106,16 +106,40 @@ public class Walk : MonoBehaviour
         }
         
         Teacher teacher = GetComponent<Teacher>();
-        teacher.Jumpscare();
-        
+        teacher.Jumpscare();    
     }
+
+    IEnumerator WalkTo(Transform t)
+    {
+        Vector3 pos = t.position;
+        pos = new Vector3(pos.x, transform.position.y, pos.z);
+
+        while (Vector3.Distance(transform.position, pos) > 2f)
+        {
+            LookAtTarget(t);
+            transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * 5);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(3);
+        StartCoroutine(WalkThroughGrid());
+    }
+
     public void AttackStudent()
     {
         print("YOU THERE!");
         StopAllCoroutines();
         StartCoroutine(WalkToPlayer());
         CameraManager cam = player.gameObject.GetComponent<CameraManager>();
-        cam.JumpscareCamOn();
-        
+        cam.JumpscareCamOn();   
+    }
+
+    public void CheckoutIncident(Transform t)
+    {
+        print("Huh? what was that?");
+        StopAllCoroutines();
+        StartCoroutine(WalkTo(t));
+
+
     }
 }

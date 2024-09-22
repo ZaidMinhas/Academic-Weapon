@@ -18,7 +18,6 @@ public class Disappearable : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
     }
 
-
     public void ShowOutline()
     {
         outline.enabled = true;

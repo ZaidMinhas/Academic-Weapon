@@ -39,7 +39,7 @@ public class ExamSheet : MonoBehaviour
     {
         q_number++;
        textbox.text = "Q" + q_number;
-        if (q_number > 11) { finished = true; }
+        if (q_number > 10) { finished = true; }
         Clear();
     }
 }

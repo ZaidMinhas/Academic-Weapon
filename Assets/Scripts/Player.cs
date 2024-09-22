@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     {
         
 
-        if (cameraManager.isWriting())
+        if (isWriting())
         {       
             CheckInput();
         }
@@ -60,6 +60,11 @@ public class Player : MonoBehaviour
             return;
         }
 
+    }
+
+    public bool isWriting()
+    {
+        return cameraManager.isWriting();
     }
 
     void Write(int k)

@@ -12,6 +12,7 @@ public class Disappear : MonoBehaviour
     [SerializeField] private UIManager uiManager;
     [SerializeField] CheatSheet cheatSheet;
     [SerializeField] private float cooldownTime = 4.0f;
+    [SerializeField] Teacher teacher;
         private float x = 0.0f;
         private float rate = 0.045f;
 
@@ -42,6 +43,7 @@ public class Disappear : MonoBehaviour
                 Debug.Log("Cooldown is not done yet!");
             }
         }
+
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Ray rayOrigin = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit hitInfo;
@@ -62,6 +64,7 @@ public class Disappear : MonoBehaviour
                     
                     if (IsCooldownDone())
                     {
+                        teacher.Alert(lastHitObject.transform);
                         Cooldown();
                         lastHitObject.Disappear();
                         uiManager.AbilityCooldown();
@@ -102,7 +105,7 @@ public class Disappear : MonoBehaviour
     {
         timeLastUsed = Time.time;
         targetTime = 0;
-        Debug.Log(timeLastUsed);
+        //Debug.Log(timeLastUsed);
     }
 
     private bool IsCooldownDone()

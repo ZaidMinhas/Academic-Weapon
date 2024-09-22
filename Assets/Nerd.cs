@@ -17,9 +17,12 @@ public class Nerd : MonoBehaviour
     int index = 0;
     bool success = false;
     public bool stopChecking = false;
+
+    private AudioSource audioSource;
     void Start()
     {
         quotes = new string[] {"Hey, what is that!" , "I'm gonna tell the teacher", "I studied hard for this", "OH TEACHER!!!"};
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,7 @@ public class Nerd : MonoBehaviour
             {
                 urmTimer = Time.time + 5;
                 print("Nerd: " + quotes[index++]);
+                audioSource.Play();
 
                 if (quotes.Length == index)
                 {
@@ -60,7 +64,7 @@ public class Nerd : MonoBehaviour
 
         if (cheetSheet.present && !stalking)
         {
-            urmTimer = Time.time + 5;
+            urmTimer = Time.time + 4;
             stalking = true;
 
         }

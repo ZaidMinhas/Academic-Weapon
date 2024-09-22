@@ -8,7 +8,8 @@ public class Teacher : MonoBehaviour
 
     [SerializeField] private AudioClip[] footstepClips;
     [SerializeField] CheatSheet cheetSheet;
-    
+    [SerializeField] Player player;
+
     private float time = 0.0f;
     Walk walk;
 
@@ -42,7 +43,7 @@ public class Teacher : MonoBehaviour
         if (!caught)
         {
             CheckCheating();
-
+            CheckLooking();
         }
         
     }
@@ -56,6 +57,37 @@ public class Teacher : MonoBehaviour
             audioSource.clip = footstepClips[Random.Range(0, footstepClips.Length - 1)];
             audioSource.Play();
         }
+    }
+
+    bool knowsPlayerIsLooking = false;
+    float annoyTime;
+    float killTime;
+    bool warned = false;
+    void CheckLooking()
+    {
+        if (!knowsPlayerIsLooking && !player.isWriting())
+        {
+            knowsPlayerIsLooking = true;
+            annoyTime = Time.time + 5;
+            killTime = Time.time + 8;
+        }
+        else if (knowsPlayerIsLooking && player.isWriting())
+        {
+            knowsPlayerIsLooking = false;
+        }
+        else if (knowsPlayerIsLooking && !player.isWriting())
+        {
+            if (!warned && Time.time > annoyTime)
+            {
+                print("HEY LOOK AT YOUR PAPER");
+                warned = true;
+            }
+
+            if (Time.time > killTime)
+            {
+                AttackStudent();
+            }
+        }   
     }
 
     void CheckCheating()
@@ -78,5 +110,10 @@ public class Teacher : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("Jumpscare");
         
+    }
+
+    public void Alert(Transform t)
+    {
+        walk.CheckoutIncident(t);
     }
 }

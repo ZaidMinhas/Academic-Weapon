@@ -11,6 +11,8 @@ public class CheatSheet : MonoBehaviour
     bool firstClick = true;
     public int[] answers;
     int index = 0;
+
+    
     private void Awake()
     {
         canvas = GetComponentInChildren<Canvas>();
@@ -29,6 +31,7 @@ public class CheatSheet : MonoBehaviour
         StartCoroutine(GenerateAnswer());
     }
 
+    int diff = 0; //dificulty
     IEnumerator GenerateAnswer()
     {
         
@@ -36,7 +39,7 @@ public class CheatSheet : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         
         
-        int inputs = Random.Range(6 , 15);
+        int inputs = Random.Range(4+(diff*3)/4, 6+diff);
         answers = new int[inputs];
         index = 0;
         for (int i = 0; i < inputs; i++)
@@ -45,9 +48,12 @@ public class CheatSheet : MonoBehaviour
             int orientation = Random.Range(0, 4);
             answers[i] = orientation;
 
+            
             arrow.transform.localEulerAngles = new Vector3(0, 0, orientation * 90);
-            yield return new WaitForSeconds(0.2f);
+            audioSource.Play();
+            yield return new WaitForSeconds(0.3f);
         }
+        diff += 1;
     }
 
     void Clear()
@@ -86,9 +92,6 @@ public class CheatSheet : MonoBehaviour
         present = false;
         GetComponent<MeshRenderer>().enabled = false;
         canvas.enabled = false;
-
-
-        
 
         if (!audioSource.isPlaying)
         {
