@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         HUD = Instantiate(HUD);
+        HUD.enabled = false;
         
         gameOverScreen = Instantiate(gameOverScreen);
         gameOverScreen.enabled = false;
@@ -93,5 +94,10 @@ public class UIManager : MonoBehaviour
     public bool IsMainMenu()
     {
         return mainMenu.enabled;
+    }
+
+    public void ShowHUD()
+    {
+        HUD.enabled = true;
     }
 }
