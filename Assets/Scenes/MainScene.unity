@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45076674, g: 0.5007051, b: 0.5747879, a: 1}
+  m_IndirectSpecularColor: {r: 0.4507662, g: 0.50070477, b: 0.57478696, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2487,7 +2487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1880657570}
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 22606787}
   timeLimit: 2
   pausePost: {fileID: 2700556058995002389, guid: a2787a6589618433bb909445de30b42e, type: 3}
   cheater: {fileID: 1066478739}
