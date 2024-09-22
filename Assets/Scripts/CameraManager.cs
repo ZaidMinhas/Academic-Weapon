@@ -12,6 +12,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera upCamera;
     [SerializeField] private CinemachineVirtualCamera rightCamera;
     [SerializeField] private CinemachineVirtualCamera jumpScareCam;
+    [SerializeField] private CinemachineVirtualCamera mainMenuCam;
     [SerializeField] private float range = 4.0f;
 
     private void Update()
