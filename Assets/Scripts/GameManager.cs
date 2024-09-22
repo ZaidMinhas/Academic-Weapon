@@ -152,6 +152,7 @@ public class GameManager : MonoBehaviour
 
     void Win()
     {
+        disableAll();
         uiManager.ShowWin();
         audioManager.StopAudio();
     }
