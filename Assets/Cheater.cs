@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TreeEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Cheater : MonoBehaviour
@@ -23,6 +24,9 @@ public class Cheater : MonoBehaviour
     private bool success = false;
 
     private AudioSource audioSource;
+
+    [SerializeField] Image imgHolder;
+    [SerializeField] Sprite squakeImage;
 
     private void Start()
     {
@@ -51,11 +55,13 @@ public class Cheater : MonoBehaviour
         }
     }
 
+
     private void MoveCloser()
     {
         Vector3 position = transform.position;
         if (position.x <= xValToStopAt)
         {
+            //StartCoroutine(displayImage(squakeImage));
             transform.position = new Vector3(position.x + distanceToMove, position.y, position.z);
             PlayChairScraping();
         }
@@ -99,5 +105,16 @@ public class Cheater : MonoBehaviour
             audioSource.Play();
         }
        
+    }
+
+    IEnumerator displayImage(Sprite img)
+    {
+        imgHolder.color = new Color(0.3f, 1, 0.3f, 1);
+        imgHolder.sprite = img;
+
+
+        yield return new WaitForSeconds(1);
+
+        imgHolder.color = new Color(0.3f, 1, 0.3f, 0);
     }
 }

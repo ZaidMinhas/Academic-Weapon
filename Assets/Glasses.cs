@@ -6,6 +6,12 @@ public class Glasses : Disappearable
 {
     public bool present = true;
     float glassesTimer;
+    Nerd nerd;
+
+    public void Awake()
+    {
+        nerd = transform.parent.GetComponent<Nerd>();
+    }
 
 
     public override bool alertsTeacher()
@@ -17,14 +23,14 @@ public override void Disappear()
         base.Disappear();
         present = false;
         glassesTimer = Time.time + 10;
-        print("Nerd: HUH? Where are my glasses!!!");
+        nerd.glassesImage(true);
     }
 
     public void Reappear()
     {
         GetComponent<MeshRenderer>().enabled = true;
         present = true;
-        print("Nerd: Ah I was wearing them this whole time");
+        nerd.glassesImage(false);
     }
 
     private void Update()
