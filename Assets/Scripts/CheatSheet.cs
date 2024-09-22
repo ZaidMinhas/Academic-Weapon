@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using DG.Tweening;
 
 public class CheatSheet : MonoBehaviour
 {
@@ -60,6 +61,11 @@ public class CheatSheet : MonoBehaviour
         {
             GameObject arrow = Instantiate(arrowPrefab, canvas.transform);
             arrow.transform.localEulerAngles = new Vector3(0, 0, orientation[draw_index] * 90);
+
+            Vector3 originalSize = arrow.transform.localScale;
+            arrow.transform.localScale = Vector3.zero;
+
+            arrow.transform.DOScale(originalSize, 0.3f).SetEase(Ease.InOutElastic);
             audioSource.Play();
             draw_index++;
             yield return new WaitForSeconds(0.3f);
@@ -132,6 +138,4 @@ public class CheatSheet : MonoBehaviour
         }
 
     }
-
-
 }
