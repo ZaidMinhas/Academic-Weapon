@@ -32,7 +32,8 @@ public class Cheater : MonoBehaviour
 
     void Update()
     {
-        
+        if (success) { return; }
+
         if (Time.time > (timeSincePlayerLook + moveCooldown) && Time.time != 0)
         {
             float random = Random.value;

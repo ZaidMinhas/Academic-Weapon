@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4507662, g: 0.50070477, b: 0.57478696, a: 1}
+  m_IndirectSpecularColor: {r: 0.45076674, g: 0.5007051, b: 0.5747879, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2493,6 +2493,7 @@ MonoBehaviour:
   cheater: {fileID: 1066478739}
   examSheet: {fileID: 1813311586}
   teacher: {fileID: 2046447293}
+  nerd: {fileID: 1210248228}
 --- !u!4 &360137502
 Transform:
   m_ObjectHideFlags: 0
@@ -3232,7 +3233,7 @@ Transform:
   m_GameObject: {fileID: 438694327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.49411678, y: -0.26857162, z: 2.0188262}
+  m_LocalPosition: {x: 0.49411678, y: -0.26857162, z: 2.41}
   m_LocalScale: {x: 0.29, y: 0.29, z: 0.29}
   m_ConstrainProportionsScale: 1
   m_Children: []
