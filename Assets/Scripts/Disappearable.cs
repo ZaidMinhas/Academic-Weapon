@@ -25,6 +25,7 @@ public class Disappearable : MonoBehaviour
 
     public void ShowOutline()
     {
+        
         outline.enabled = true;
     }
 

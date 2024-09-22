@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44815737, g: 0.49412143, b: 0.5537445, a: 1}
+  m_IndirectSpecularColor: {r: 0.44815797, g: 0.4941218, b: 0.5537457, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8631,6 +8631,7 @@ PrefabInstance:
     - {fileID: 7387592913116954304, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
     - {fileID: 8674132004443829058, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
     - {fileID: 4566695212078629979, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+    - {fileID: 3400170247274581175, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3141181152934114129, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
@@ -14586,6 +14587,7 @@ PrefabInstance:
     - {fileID: 7387592913116954304, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
     - {fileID: 8674132004443829058, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
     - {fileID: 4566695212078629979, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+    - {fileID: 3400170247274581175, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
