@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.4484535, g: 0.4946317, b: 0.55488217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3345,7 +3345,7 @@ MonoBehaviour:
   uiManager: {fileID: 1880657570}
   audioManager: {fileID: 22606787}
   cameraManager: {fileID: 1854782044}
-  timeLimit: 2.5
+  timeLimit: 2
   pausePost: {fileID: 2700556058995002389, guid: a2787a6589618433bb909445de30b42e, type: 3}
   deathPost: {fileID: 1374893761458272725, guid: 73e6393fb4af9468684624e43d7351f6, type: 3}
   cheater: {fileID: 1066478743}
@@ -17445,7 +17445,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854782037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -19698,7 +19698,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 8f3ff5338455006448bed55337e42f76, type: 3}
     - target: {fileID: 7681803456241094576, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
       propertyPath: moveCooldown
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7681803456241094576, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
       propertyPath: xValToStopAt
