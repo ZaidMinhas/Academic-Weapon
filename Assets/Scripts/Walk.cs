@@ -98,7 +98,7 @@ public class Walk : MonoBehaviour
 
     IEnumerator WalkToPlayer()
     {
-        while (Vector3.Distance(transform.position, player.position) > 2f)
+        while (Vector3.Distance(transform.position, player.position) > 2.5f)
         {
             LookAtTarget(player);
             transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * 5);

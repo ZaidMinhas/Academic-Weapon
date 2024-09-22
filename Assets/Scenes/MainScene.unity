@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44815737, g: 0.49412143, b: 0.5537445, a: 1}
+  m_IndirectSpecularColor: {r: 0.44815797, g: 0.4941218, b: 0.5537457, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2553,6 +2553,8 @@ MonoBehaviour:
   pausePost: {fileID: 2700556058995002389, guid: a2787a6589618433bb909445de30b42e, type: 3}
   cheater: {fileID: 1066478739}
   examSheet: {fileID: 1813311586}
+  teacher: {fileID: 2046447293}
+  nerd: {fileID: 1210248228}
 --- !u!4 &360137502
 Transform:
   m_ObjectHideFlags: 0
@@ -7876,6 +7878,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1557249798}
     m_Modifications:
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.07764218
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3760238
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5999249
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7057977
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.043007705
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7057977
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.043007705
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423592628710027838, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3141181152934114129, guid: bddcce2fb0a8445f1b181977a7a0fc45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.2023015
@@ -7960,6 +8002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cheetSheet: {fileID: 55946682}
   glasses: {fileID: 438694329}
+  stopChecking: 0
 --- !u!1001 &1256456886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13901,6 +13944,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5627574604035744782, guid: caf00aced6ed84d37b1bef96a4e22cb7, type: 3}
   m_PrefabInstance: {fileID: 9067596899580573402}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2046447293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4622959907821532524, guid: caf00aced6ed84d37b1bef96a4e22cb7, type: 3}
+  m_PrefabInstance: {fileID: 9067596899580573402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ab19062d7d2f24196e31e9ed7e5567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2049369888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15467,7 +15521,7 @@ PrefabInstance:
       objectReference: {fileID: 55946682}
     - target: {fileID: 4995329702378815156, guid: caf00aced6ed84d37b1bef96a4e22cb7, type: 3}
       propertyPath: m_Name
-      value: Teacher@T-Pose
+      value: Teacher
       objectReference: {fileID: 0}
     - target: {fileID: 5627574604035744782, guid: caf00aced6ed84d37b1bef96a4e22cb7, type: 3}
       propertyPath: m_LocalScale.x
