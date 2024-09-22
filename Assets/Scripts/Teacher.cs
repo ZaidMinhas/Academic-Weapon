@@ -33,7 +33,11 @@ public class Teacher : MonoBehaviour
        
         if (time > walkingInterval)
         {
-            PlayWalkingSound();
+            if (walk.Moving())
+            {
+                PlayWalkingSound();
+            }
+            
             time = 0.0f;
         }
         else
