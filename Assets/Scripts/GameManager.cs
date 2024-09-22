@@ -42,10 +42,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!uiManager.IsMainMenu())
+        if (uiManager.IsMainMenu())
         {
-            cameraManager.MainMenuCamOff();
+           return;
         }
+        cameraManager.MainMenuCamOff();
         
         // Update the timer while there's still time left
         if (timeRemaining > 0)
