@@ -17,7 +17,7 @@ public class Nerd : MonoBehaviour
     int index = 0;
     bool success = false;
     public bool stopChecking = false;
-
+    
     private AudioSource audioSource;
     void Start()
     {

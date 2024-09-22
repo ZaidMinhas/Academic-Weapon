@@ -7,7 +7,12 @@ public class Glasses : Disappearable
     public bool present = true;
     float glassesTimer;
 
-    public override void Disappear()
+
+    public override bool alertsTeacher()
+    {
+        return false;
+    }
+public override void Disappear()
     {
         base.Disappear();
         present = false;

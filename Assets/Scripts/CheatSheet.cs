@@ -9,7 +9,7 @@ public class CheatSheet : MonoBehaviour
     [SerializeField] GameObject arrowPrefab;
     private Canvas canvas;
     private AudioSource audioSource;
-    bool firstClick = true;
+    
     public int[] orientation;
     int index = 0;
 

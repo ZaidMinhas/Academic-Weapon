@@ -8,6 +8,11 @@ public class Disappearable : MonoBehaviour
 {
     private Outline outline;
 
+    public virtual bool alertsTeacher()
+    {
+        return true;
+    } 
+
     private void Start()
     {
         outline = GetComponent<Outline>();

@@ -13,15 +13,16 @@ public class Disappear : MonoBehaviour
     [SerializeField] CheatSheet cheatSheet;
     [SerializeField] private float cooldownTime = 4.0f;
     [SerializeField] Teacher teacher;
-        private float x = 0.0f;
-        private float rate = 0.045f;
+        //private float x = 0.0f;
+        //private float rate = 0.045f;
+    
+
+    
 
     private float targetTime = 0.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -67,7 +68,11 @@ public class Disappear : MonoBehaviour
                     
                     if (IsCooldownDone())
                     {
-                        teacher.Alert(lastHitObject.transform);
+                        if (lastHitObject.alertsTeacher())
+                        {
+                            teacher.Alert(lastHitObject.transform);
+                        }
+                        
                         Cooldown();
                         lastHitObject.Disappear();
                         uiManager.AbilityCooldown();
