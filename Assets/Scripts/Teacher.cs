@@ -116,6 +116,7 @@ public class Teacher : MonoBehaviour
 
     public void Alert(Transform t)
     {
+
         walk.CheckoutIncident(t);
     }
 

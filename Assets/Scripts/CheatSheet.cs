@@ -65,7 +65,7 @@ public class CheatSheet : MonoBehaviour
             Vector3 originalSize = arrow.transform.localScale;
             arrow.transform.localScale = Vector3.zero;
 
-            arrow.transform.DOScale(originalSize, 0.3f).SetEase(Ease.InOutElastic);
+            arrow.transform.DOScale(originalSize, 0.3f).SetEase(Ease.OutBack);
             audioSource.Play();
             draw_index++;
             yield return new WaitForSeconds(0.3f);

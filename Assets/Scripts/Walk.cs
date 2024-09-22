@@ -11,8 +11,12 @@ public class Walk : MonoBehaviour
     bool distracted = false;
     [SerializeField] Transform player;
     [SerializeField] float walkSpeed;
+    Animator anim;
+
     void Start()
     {
+
+        anim = GetComponent<Animator>();
         foreach (Transform child in walkPointsParent.transform)
         {
             walkPoints.Add(child);
@@ -123,7 +127,13 @@ public class Walk : MonoBehaviour
             yield return null;
         }
 
+
+        //REPLACE WITH IDLE ANIMATION
+        anim.speed = 0;
+        anim.Update(0);
         yield return new WaitForSeconds(3);
+        anim.speed = 1;
+
         distracted = false;
         StartCoroutine(WalkThroughGrid());
     }
