@@ -11,14 +11,13 @@ public class Walk : MonoBehaviour
     [SerializeField] Transform player;
 
     void Start()
-    {        
+    {
         foreach (Transform child in walkPointsParent.transform)
         {
             walkPoints.Add(child);
         }
-
-        
         currentPoint = walkPoints[0];
+        
         StartCoroutine(WalkThroughGrid());
     }
 
@@ -99,7 +98,7 @@ public class Walk : MonoBehaviour
 
     IEnumerator WalkToPlayer()
     {
-        while (Vector3.Distance(transform.position, player.position) > 0.1f)
+        while (Vector3.Distance(transform.position, player.position) > 2f)
         {
             LookAtTarget(player);
             transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * 5);
