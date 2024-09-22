@@ -15,16 +15,19 @@ public class Nerd : MonoBehaviour
 
     string[] quotes;
     int index = 0;
+    bool success = false;
+    public bool stopChecking = false;
     void Start()
     {
         quotes = new string[] {"Hey, what is that!" , "I'm gonna tell the teacher", "I studied hard for this", "OH TEACHER!!!"};
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (success) { return; }
+
         if (stalking)
         {
             if (!glasses.present)
@@ -47,7 +50,7 @@ public class Nerd : MonoBehaviour
 
                 if (quotes.Length == index)
                 {
-                    enabled = false;
+                    success = true;
                 }
             }
         }
@@ -61,5 +64,12 @@ public class Nerd : MonoBehaviour
             stalking = true;
 
         }
+    }
+
+    
+    public bool IsSuccessful()
+    {
+        if (stopChecking) { return false; }
+        return success;
     }
 }
