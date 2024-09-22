@@ -55,12 +55,13 @@ public class Cheater : MonoBehaviour
         }
     }
 
+
     private void MoveCloser()
     {
         Vector3 position = transform.position;
         if (position.x <= xValToStopAt)
         {
-            StartCoroutine(displayImage(squakeImage));
+            //StartCoroutine(displayImage(squakeImage));
             transform.position = new Vector3(position.x + distanceToMove, position.y, position.z);
             PlayChairScraping();
         }

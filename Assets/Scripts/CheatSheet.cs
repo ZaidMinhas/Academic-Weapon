@@ -14,7 +14,9 @@ public class CheatSheet : MonoBehaviour
     public int[] orientation;
     int index = 0;
 
-    
+    [SerializeField] AudioClip poofSound;
+    [SerializeField] AudioClip writeSound;
+
     private void Awake()
     {
         canvas = GetComponentInChildren<Canvas>();
@@ -65,7 +67,8 @@ public class CheatSheet : MonoBehaviour
             Vector3 originalSize = arrow.transform.localScale;
             arrow.transform.localScale = Vector3.zero;
 
-            arrow.transform.DOScale(originalSize, 0.3f).SetEase(Ease.OutBack);
+            arrow.transform.DOScale(originalSize, 0.25f).SetEase(Ease.OutBack);
+            audioSource.clip = writeSound;
             audioSource.Play();
             draw_index++;
             yield return new WaitForSeconds(0.3f);
@@ -120,7 +123,10 @@ public class CheatSheet : MonoBehaviour
 
         if (!audioSource.isPlaying)
         {
+            
+            audioSource.clip = poofSound;
             audioSource.Play();
+
         }
     }
 
@@ -134,6 +140,8 @@ public class CheatSheet : MonoBehaviour
 
         if (!audioSource.isPlaying)
         {
+            
+            audioSource.clip = poofSound;
             audioSource.Play();
         }
 
