@@ -61,6 +61,11 @@ public class ButtonAnim : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        AudioSource audio = parent.GetComponent<AudioSource>();
+        if (!audio.isPlaying)
+        {
+            audio.Play();  
+        }
         // Play button pressed
         if (buttonType == ButtonType.Play)
         {
