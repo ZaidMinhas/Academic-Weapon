@@ -11,35 +11,39 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera leftCamera;
     [SerializeField] private CinemachineVirtualCamera upCamera;
     [SerializeField] private CinemachineVirtualCamera rightCamera;
+    [SerializeField] private CinemachineVirtualCamera jumpScareCam;
     [SerializeField] private float range = 4.0f;
 
     private void Update()
     {
-        Vector3 mouse = Input.mousePosition;
-        
-        // Mouse to the left
-        if (mouse.x < range)
+        if (!jumpScareCam.enabled)
         {
-            LookLeft();
-        }
-        
-        // Mouse to the right
-        else if (mouse.x > (Screen.width - range))
-        {
-          LookRight();
-          
-        }
-        
-        // Mouse downwards
-        else if (mouse.y < range)
-        {
-            LookDesk();
-        }
-        
-        // Mouse upwards
-        else if (mouse.y > (Screen.height - range))
-        {
-            LookUp();
+            Vector3 mouse = Input.mousePosition;
+            
+            // Mouse to the left
+            if (mouse.x < range)
+            {
+                LookLeft();
+            }
+            
+            // Mouse to the right
+            else if (mouse.x > (Screen.width - range))
+            {
+              LookRight();
+              
+            }
+            
+            // Mouse downwards
+            else if (mouse.y < range)
+            {
+                LookDesk();
+            }
+            
+            // Mouse upwards
+            else if (mouse.y > (Screen.height - range))
+            {
+                LookUp();
+            }
         }
     }
     
@@ -80,5 +84,15 @@ public class CameraManager : MonoBehaviour
     public bool isWriting()
     {
         return deskCamera.enabled;
+    }
+
+    public void JumpscareCamOn()
+    {
+        jumpScareCam.enabled = true;
+        rightCamera.enabled = false;
+        upCamera.enabled = false;
+        deskCamera.enabled = false;
+        leftCamera.enabled = false;
+        
     }
 }

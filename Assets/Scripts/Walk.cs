@@ -106,11 +106,17 @@ public class Walk : MonoBehaviour
             yield return null;
         }
         
+        Teacher teacher = GetComponent<Teacher>();
+        teacher.Jumpscare();
+        
     }
     public void AttackStudent()
     {
         print("YOU THERE!");
         StopAllCoroutines();
         StartCoroutine(WalkToPlayer());
+        CameraManager cam = player.gameObject.GetComponent<CameraManager>();
+        cam.JumpscareCamOn();
+        
     }
 }

@@ -18,7 +18,6 @@ public class Teacher : MonoBehaviour
     {   
         walk = GetComponent<Walk>();
         audioSource = GetComponent<AudioSource>();
-        Debug.Log(audioSource);
     }
 
     // Update is called once per frame
@@ -68,5 +67,11 @@ public class Teacher : MonoBehaviour
             caught = true;
             walk.AttackStudent();
         }
+    }
+
+    public void Jumpscare()
+    {
+        GetComponent<Animator>().SetTrigger("Jumpscare");
+        
     }
 }
