@@ -53,6 +53,18 @@ MonoBehaviour:
   studentOptions:
   - {fileID: 6153301252414090593, guid: f69f92152bb244878a88d622cb00d3b1, type: 3}
   - {fileID: 8044579299737599581, guid: f06096f74b9d84bfa83bc9c7f2ef68b6, type: 3}
+  femaleMats:
+  - {fileID: 2100000, guid: 4e4f778339c90b1408c67d029d61c5ea, type: 2}
+  - {fileID: 2100000, guid: af8d29766a7eba240b266e35291d9c29, type: 2}
+  - {fileID: 2100000, guid: 68c4e38cb8bf5b74b9cc60d8df8cd665, type: 2}
+  - {fileID: 2100000, guid: fcaf548a4384d414eb00f3bcf88f675f, type: 2}
+  maleMats:
+  - {fileID: 2100000, guid: dd15176b3dd6f744ea729fe84a56fa5f, type: 2}
+  - {fileID: 2100000, guid: e3d072c9b06cd644e850dfe2223125eb, type: 2}
+  - {fileID: 2100000, guid: 277b37e090d215f4e85ca42fe45d961f, type: 2}
+  - {fileID: 2100000, guid: 1f9554e5d37a574418f61e390b51d497, type: 2}
+  cheaterMat: {fileID: 2100000, guid: ae739c2430c6320498ebf957b8e17e8a, type: 2}
+  nerdMat: {fileID: 2100000, guid: 0142cb714d716504c909f5def62ac88e, type: 2}
 --- !u!1 &2699733956660937124
 GameObject:
   m_ObjectHideFlags: 0
