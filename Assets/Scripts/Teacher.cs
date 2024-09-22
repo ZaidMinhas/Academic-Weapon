@@ -40,7 +40,7 @@ public class Teacher : MonoBehaviour
     private void FixedUpdate()
     {
         //todo OPTIMIZE LATER
-        if (!caught)
+        if (!caught && !walk.isDistracted())
         {
             CheckCheating();
             CheckLooking();

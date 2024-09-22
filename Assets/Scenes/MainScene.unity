@@ -12049,7 +12049,7 @@ MonoBehaviour:
   upCamera: {fileID: 1953562023}
   rightCamera: {fileID: 770348538}
   jumpScareCam: {fileID: 2065175605}
-  range: 4
+  range: 5
 --- !u!114 &1854782045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12064,7 +12064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1880657570}
   cheatSheet: {fileID: 55946682}
-  cooldownTime: 1
+  cooldownTime: 4
   teacher: {fileID: 2046447293}
 --- !u!114 &1854782046
 MonoBehaviour:
@@ -15154,7 +15154,7 @@ PrefabInstance:
       objectReference: {fileID: 1854782038}
     - target: {fileID: 4199299755282589850, guid: caf00aced6ed84d37b1bef96a4e22cb7, type: 3}
       propertyPath: walkSpeed
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4199299755282589850, guid: caf00aced6ed84d37b1bef96a4e22cb7, type: 3}
       propertyPath: walkPointsParent

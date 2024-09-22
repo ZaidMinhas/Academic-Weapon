@@ -8,6 +8,7 @@ public class Walk : MonoBehaviour
     private List<Transform> walkPoints = new List<Transform>();
     private HashSet<Transform> visitedPoints = new HashSet<Transform>();
     private Transform currentPoint;
+    bool distracted = false;
     [SerializeField] Transform player;
     [SerializeField] float walkSpeed;
     void Start()
@@ -21,6 +22,7 @@ public class Walk : MonoBehaviour
         StartCoroutine(WalkThroughGrid());
     }
 
+    
     IEnumerator WalkThroughGrid()
     {
         while (true)
@@ -114,7 +116,7 @@ public class Walk : MonoBehaviour
         Vector3 pos = t.position;
         pos = new Vector3(pos.x, transform.position.y, pos.z);
 
-        while (Vector3.Distance(transform.position, pos) > 2f)
+        while (Vector3.Distance(transform.position, pos) > 1f)
         {
             LookAtTarget(t);
             transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * 5);
@@ -122,6 +124,7 @@ public class Walk : MonoBehaviour
         }
 
         yield return new WaitForSeconds(3);
+        distracted = false;
         StartCoroutine(WalkThroughGrid());
     }
 
@@ -134,8 +137,14 @@ public class Walk : MonoBehaviour
         cam.JumpscareCamOn();   
     }
 
+    public bool isDistracted()
+    {
+        return distracted;
+    }
+
     public void CheckoutIncident(Transform t)
     {
+        distracted = true;
         print("Huh? what was that?");
         StopAllCoroutines();
         StartCoroutine(WalkTo(t));

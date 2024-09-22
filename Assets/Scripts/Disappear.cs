@@ -29,12 +29,14 @@ public class Disappear : MonoBehaviour
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-
+            if (!cheatSheet.present)
+            {
+                cheatSheet.Reappear();  
+            }
             if (IsCooldownDone())
             {
                 Cooldown();
-                if (cheatSheet.present) { cheatSheet.Disappear(); }
-                else { cheatSheet.Reappear(); }
+                cheatSheet.Disappear();
                 
                 uiManager.AbilityCooldown();
             }
