@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         // Time has run out -- GAME OVER
         else
         {
-            GameOver();
+            GameOver("You ran out of time.");
         }
 
         if (nerd.IsSuccessful())
@@ -69,8 +69,19 @@ public class GameManager : MonoBehaviour
 
         if (teacher.IsSuccessful())
         {
-            deathPost.enabled = true;
-            uiManager.FadeToBlack();
+            if (uiManager.IsFadeDone())
+            {
+                GameOver("You were caught.");
+            }
+            else
+            {
+                deathPost.enabled = true;
+                uiManager.FadeToBlack();
+                audioManager.PlaySlap();
+                uiManager.HideAbility();
+            }
+           
+            
         }
 
         if (examSheet.finished)
@@ -80,11 +91,12 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void GameOver()
+    void GameOver(string reason)
     {
         uiManager.UpdateTime(0,0);
-        uiManager.ShowGameOver();
+        uiManager.ShowGameOver(reason);
         audioManager.StopAudio();
+        nerd.StopAudio();
     }
 
     void Win()
@@ -99,7 +111,7 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
         pausePost.enabled = !pausePost.enabled;
-        audioManager.StopAudio();
+        audioManager.ToggleAudio();
     }
 
     

@@ -52,13 +52,19 @@ public class UIManager : MonoBehaviour
         image.enabled = true;
     }
 
+    public void HideAbility()
+    {
+        HUD.enabled = false;
+    }
+
     public void UpdateTime(float minutes, float seconds)
     {
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void ShowGameOver()
+    public void ShowGameOver(string reason)
     {
+        gameOverScreen.GetComponentInChildren<TextMeshProUGUI>().text = reason;
         gameOverScreen.enabled = true;
     }
 
@@ -74,6 +80,11 @@ public class UIManager : MonoBehaviour
 
     public void FadeToBlack()
     {
-        blackPanel.DOColor(Color.black, 2);
+        blackPanel.DOColor(Color.black, 1);
+    }
+
+    public bool IsFadeDone()
+    {
+        return blackPanel.color == Color.black;
     }
 }

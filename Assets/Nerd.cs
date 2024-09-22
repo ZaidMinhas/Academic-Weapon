@@ -76,4 +76,9 @@ public class Nerd : MonoBehaviour
         if (stopChecking) { return false; }
         return success;
     }
+
+    public void StopAudio()
+    {
+        audioSource.mute = true;
+    }
 }
