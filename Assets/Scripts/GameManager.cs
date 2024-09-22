@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,6 +44,25 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    void enableAll()
+    {
+        gameStarted = true;
+        nerd.enabled = true;
+        teacher.enabled = true;
+        cheater.enabled = true;
+        disappear.enabled = true;
+    }
+
+    void disableAll()
+    {
+        gameStarted = false;
+        nerd.enabled = false;
+        teacher.enabled = false;
+        cheater.enabled = false;
+        disappear.enabled = false;
+
+    }
     void Update()
     {
 
@@ -50,13 +70,8 @@ public class GameManager : MonoBehaviour
         {
             if (button.GameStarted())
             {
-                gameStarted = true;
-
-                nerd.enabled = true;
-                teacher.enabled = true;
-                cheater.enabled = true;
-                disappear.enabled = true;   
-
+                
+                enableAll();   
             }
 
             else
@@ -101,9 +116,12 @@ public class GameManager : MonoBehaviour
 
         if (teacher.IsSuccessful())
         {
+            disableAll();
             if (uiManager.IsFadeDone())
             {
                 GameOver("You were caught.");
+                StartCoroutine(restart());
+                
             }
             else
             {
@@ -146,5 +164,10 @@ public class GameManager : MonoBehaviour
         audioManager.ToggleAudio();
     }
 
-    
+    IEnumerator restart()
+    {
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(0);
+    }
 }
