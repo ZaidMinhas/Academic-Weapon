@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6918942774571570138, guid: 91ed70621ee554d9ea1e364fc46d7260, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f0337e00e000e74c98961799b020739, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -142,6 +146,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a6dadf5e00795421a944e2d2836afcfb, type: 3}
   - {fileID: 8300000, guid: 9b2ac581b5d6046e5a5f0daa0ff9d697, type: 3}
   cheetSheet: {fileID: 0}
+  player: {fileID: 0}
   walkingInterval: 1
 --- !u!114 &4199299755282589850
 MonoBehaviour:
@@ -157,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkPointsParent: {fileID: 0}
   player: {fileID: 0}
+  walkSpeed: 0
 --- !u!82 &7765591336023592044
 AudioSource:
   m_ObjectHideFlags: 0
