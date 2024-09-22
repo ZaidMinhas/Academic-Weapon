@@ -110,7 +110,7 @@ public class Walk : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * 5);
             yield return null;
         }
-        
+        moving = false;
         Teacher teacher = GetComponent<Teacher>();
         teacher.Jumpscare();    
     }
@@ -131,13 +131,19 @@ public class Walk : MonoBehaviour
         //REPLACE WITH IDLE ANIMATION
         anim.speed = 0;
         anim.Update(0);
+        moving = false;
         yield return new WaitForSeconds(3);
         anim.speed = 1;
-
+        moving = true;
         distracted = false;
         StartCoroutine(WalkThroughGrid());
     }
 
+    bool moving = true;
+    public bool Moving()
+    {
+        return moving;
+    }
     public void AttackStudent()
     {
         print("YOU THERE!");

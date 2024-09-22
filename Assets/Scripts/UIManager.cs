@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Canvas gameOverScreen;
     [SerializeField] private Canvas winScreen;
     [SerializeField] private Canvas pauseMenu;
+    [SerializeField] private Canvas mainMenu;
     [SerializeField] private Image blackPanel;
     
     private TextMeshProUGUI timeText;
@@ -80,11 +81,17 @@ public class UIManager : MonoBehaviour
 
     public void FadeToBlack()
     {
+        
         blackPanel.DOColor(Color.black, 1);
     }
 
     public bool IsFadeDone()
     {
         return blackPanel.color == Color.black;
+    }
+
+    public bool IsMainMenu()
+    {
+        return mainMenu.enabled;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Teacher : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class Teacher : MonoBehaviour
     [SerializeField] private AudioClip[] footstepClips;
     [SerializeField] CheatSheet cheetSheet;
     [SerializeField] Player player;
+    [SerializeField] Image imgHolder;
+
+    [SerializeField] Sprite warningImg;
+    [SerializeField] Sprite deathImg;
 
     private float time = 0.0f;
     private bool success = false;
@@ -28,7 +33,11 @@ public class Teacher : MonoBehaviour
        
         if (time > walkingInterval)
         {
-            PlayWalkingSound();
+            if (walk.Moving())
+            {
+                PlayWalkingSound();
+            }
+            
             time = 0.0f;
         }
         else
@@ -80,7 +89,7 @@ public class Teacher : MonoBehaviour
         {
             if (!warned && Time.time > annoyTime)
             {
-                print("HEY LOOK AT YOUR PAPER");
+                StartCoroutine(displayImage(warningImg));
                 warned = true;
             }
 
@@ -103,6 +112,7 @@ public class Teacher : MonoBehaviour
 
     public void AttackStudent()
     {
+        StartCoroutine(displayImage(deathImg));
         caught = true;
         walk.AttackStudent();
     }
@@ -123,5 +133,16 @@ public class Teacher : MonoBehaviour
     public bool IsSuccessful()
     {
         return success;
+    }
+
+    IEnumerator displayImage(Sprite img)
+    {
+        imgHolder.color = new Color(1, 0.3f, 0.3f, 1);
+        imgHolder.sprite = img;
+
+
+        yield return new WaitForSeconds(3);
+
+        imgHolder.color = new Color(1, 0.3f, 0.3f, 0);
     }
 }
