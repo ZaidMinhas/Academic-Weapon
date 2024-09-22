@@ -9,7 +9,7 @@ public class CheatSheet : MonoBehaviour
     [SerializeField] GameObject arrowPrefab;
     private Canvas canvas;
     private AudioSource audioSource;
-    
+    private bool firstRun = true;
     public int[] orientation;
     int index = 0;
 
@@ -104,6 +104,12 @@ public class CheatSheet : MonoBehaviour
         present = false;
         GetComponent<MeshRenderer>().enabled = false;
         canvas.enabled = false;
+
+        if (firstRun)
+        {
+            firstRun = false;
+            return;
+        }
         StopAllCoroutines();
 
         if (!audioSource.isPlaying)
