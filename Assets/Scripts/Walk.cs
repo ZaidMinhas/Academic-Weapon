@@ -23,11 +23,14 @@ public class Walk : MonoBehaviour
             walkPoints.Add(child);
         }
         currentPoint = walkPoints[0];
+
+        StartCoroutine(WalkThroughGrid());
     }
 
     
-    public IEnumerator WalkThroughGrid()
+    private IEnumerator WalkThroughGrid()
     {
+        
         while (true)
         {
             List<Transform> availablePoints = GetAvailableAdjacentPoints(currentPoint);

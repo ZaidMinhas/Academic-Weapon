@@ -29,7 +29,7 @@ public class Teacher : MonoBehaviour
 
     void Start()
     {   
-        StartCoroutine(walk.WalkThroughGrid());
+        walk.enabled = true;
     }
 
     // Update is called once per frame
